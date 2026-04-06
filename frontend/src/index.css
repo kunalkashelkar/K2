@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/container-queries";
+
+@theme {
+  --color-surface-dim: #131313;
+  --color-on-surface: #e5e2e1;
+  --color-surface: #131313;
+  --color-on-surface-variant: #dac2b2;
+  --color-primary-fixed-dim: #ffb77c;
+  --color-tertiary-fixed-dim: #ddc2ac;
+  --color-on-primary-container: #432100;
+  --color-on-secondary: #4c2700;
+  --color-surface-container-low: #1c1b1b;
+  --color-on-tertiary: #3e2d1e;
+  --color-secondary: #ffb779;
+  --color-on-secondary-fixed-variant: #6c3a00;
+  --color-on-error-container: #ffdad6;
+  --color-surface-tint: #ffb77c;
+  --color-outline: #a28d7e;
+  --color-inverse-primary: #904d00;
+  --color-surface-container-highest: #353534;
+  --color-error: #ffb4ab;
+  --color-on-tertiary-container: #362618;
+  --color-surface-container: #201f1f;
+  --color-secondary-container: #794201;
+  --color-inverse-surface: #e5e2e1;
+  --color-on-background: #e5e2e1;
+  --color-background: #131313;
+  --color-outline-variant: #544437;
+  --color-primary-fixed: #ffdcc2;
+  --color-primary-container: #d27c27;
+  --color-tertiary-fixed: #faddc7;
+  --color-primary: #ffb77c;
+  --color-on-primary: #4d2700;
+  --color-on-tertiary-fixed-variant: #564333;
+  --color-tertiary-container: #a48c78;
+  --color-on-primary-fixed-variant: #6d3900;
+  --color-surface-container-high: #2a2a2a;
+  --color-on-secondary-fixed: #2e1500;
+  --color-tertiary: #ddc2ac;
+  --color-surface-bright: #393939;
+  --color-on-primary-fixed: #2e1500;
+  --color-on-secondary-container: #ffb26d;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-tertiary-fixed: #27190b;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-secondary-fixed: #ffdcc1;
+  --color-secondary-fixed-dim: #ffb779;
+  --color-surface-variant: #353534;
+  --color-inverse-on-surface: #313030;
+
+  --font-headline: "Newsreader", serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+  
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary;
+  }
+}
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .editorial-line {
+    width: 1px;
+    background-color: var(--color-outline-variant);
+    opacity: 0.15;
+  }
+  .text-stroke {
+    -webkit-text-stroke: 1px var(--color-on-surface);
+    color: transparent;
+  }
+  .vertical-rl {
+    writing-mode: vertical-rl;
+  }
+}

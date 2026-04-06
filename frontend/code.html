@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#131313",
+                    "on-surface": "#e5e2e1",
+                    "surface": "#131313",
+                    "on-surface-variant": "#dac2b2",
+                    "primary-fixed-dim": "#ffb77c",
+                    "tertiary-fixed-dim": "#ddc2ac",
+                    "on-primary-container": "#432100",
+                    "on-secondary": "#4c2700",
+                    "surface-container-low": "#1c1b1b",
+                    "on-tertiary": "#3e2d1e",
+                    "secondary": "#ffb779",
+                    "on-secondary-fixed-variant": "#6c3a00",
+                    "on-error-container": "#ffdad6",
+                    "surface-tint": "#ffb77c",
+                    "outline": "#a28d7e",
+                    "inverse-primary": "#904d00",
+                    "surface-container-highest": "#353534",
+                    "error": "#ffb4ab",
+                    "on-tertiary-container": "#362618",
+                    "surface-container": "#201f1f",
+                    "secondary-container": "#794201",
+                    "inverse-surface": "#e5e2e1",
+                    "on-background": "#e5e2e1",
+                    "background": "#131313",
+                    "outline-variant": "#544437",
+                    "primary-fixed": "#ffdcc2",
+                    "primary-container": "#d27c27",
+                    "tertiary-fixed": "#faddc7",
+                    "primary": "#ffb77c",
+                    "on-primary": "#4d2700",
+                    "on-tertiary-fixed-variant": "#564333",
+                    "tertiary-container": "#a48c78",
+                    "on-primary-fixed-variant": "#6d3900",
+                    "surface-container-high": "#2a2a2a",
+                    "on-secondary-fixed": "#2e1500",
+                    "tertiary": "#ddc2ac",
+                    "surface-bright": "#393939",
+                    "on-primary-fixed": "#2e1500",
+                    "on-secondary-container": "#ffb26d",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed": "#27190b",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed": "#ffdcc1",
+                    "secondary-fixed-dim": "#ffb779",
+                    "surface-variant": "#353534",
+                    "inverse-on-surface": "#313030"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #131313; color: #e5e2e1; font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .editorial-line { width: 1px; background-color: #544437; opacity: 0.15; }
+        .text-stroke { -webkit-text-stroke: 1px #e5e2e1; color: transparent; }
+    </style>
+</head>
+<body class="selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 rounded-none bg-[#131313]/80 backdrop-blur-xl no-border transition-colors duration-500 flex justify-between items-center px-12 py-6 max-w-full mx-auto">
+<div class="font-['Newsreader'] font-bold text-2xl tracking-tighter text-white">STUDIO</div>
+<div class="hidden md:flex gap-12">
+<a class="text-[#CC7722] font-semibold border-b border-[#CC7722] pb-1 font-['Newsreader'] italic text-lg tracking-tight" href="#home">Home</a>
+<a class="text-zinc-400 font-medium hover:text-white transition-colors font-['Newsreader'] italic text-lg tracking-tight hover:text-[#ffb77c]" href="#agency">Agency</a>
+<a class="text-zinc-400 font-medium hover:text-white transition-colors font-['Newsreader'] italic text-lg tracking-tight hover:text-[#ffb77c]" href="#services">Services</a>
+<a class="text-zinc-400 font-medium hover:text-white transition-colors font-['Newsreader'] italic text-lg tracking-tight hover:text-[#ffb77c]" href="#work">Work</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label font-bold uppercase tracking-widest text-xs scale-95 duration-200 ease-in-out hover:bg-primary transition-all">Inquire</button>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-24 overflow-hidden border-b border-outline-variant/10" id="home">
+<div class="absolute inset-0 z-0 opacity-20">
+<img alt="stark brutalist concrete structure with sharp shadows and architectural grid patterns" class="w-full h-full object-cover grayscale" data-alt="stark brutalist concrete architecture with sharp shadows, geometric grid lines, and high contrast monochromatic aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEUsDvOUuA-GL_bMLgFRuRNMOypp4P686s0gTIXsjuylGKIHrExdC8CdDJfHL_oO_kepZ1yPSC5pm4HAIhNalSNlP0rkMB1U2IDxq0CVoYd-7JR6gNsekY3AF9QPCm3wpsq3tJfPqH8h7lXzO0lHVN9RrJavlgeyhkZGnkDwZ7Sjq4Yg5n8E5cSdvjj2KzV7188J5344HQ-I13SwuRHpbNejPav1dcRiGQihEsFMVAZGmmGcS-2Yrv2Og4q9UkhylgBspE-HKSFlU"/>
+</div>
+<div class="container mx-auto px-12 relative z-10 grid grid-cols-12 gap-8">
+<div class="col-span-12 md:col-span-8">
+<h1 class="text-[clamp(4rem,12vw,10rem)] leading-[0.85] font-headline font-extrabold tracking-tighter uppercase mb-8">
+                        The Brutalist <br/> <span class="italic text-primary font-light">Archive.</span>
+</h1>
+<div class="flex flex-col md:flex-row gap-12 mt-16 items-start">
+<div class="max-w-xs">
+<p class="text-sm uppercase tracking-[0.3em] text-on-surface-variant mb-4">Curated Legacy</p>
+<p class="text-on-surface font-body text-lg leading-relaxed">Defining the next generation of heritage through architectural precision and digital permanence.</p>
+</div>
+<div class="w-full md:w-64 aspect-[3/4] bg-surface-container-high relative">
+<img alt="minimalist sculpture on a dark stone pedestal with dramatic warm lighting from the side" class="w-full h-full object-cover" data-alt="abstract minimalist stone sculpture on a dark plinth, warm side lighting casting deep shadows in a moody gallery setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ-WgIKVuWEm3TU-MQrEXBWrSaAgSQwi1xWRUN0talPzHkhdx4FiMVy19VGi6g6JY0GUBjx8af6w2GaO7FZl0rBEoCQwsqHlX-jfr7c1Sk2O8p_dACwP3f4P8Zaq93MqhBwKHveZEnycxmeWgJZ6p9-oRUnWk-8TOOHR23j0BJjwA-EHOv_9ltUpKR0IE--aDZh3PCV5-ihjpHzASO-W1zQFFi4QnzC27fqYtDl42E8WGo87arBvYvC5iHoXCBz-EAdIy6TJdKvfY"/>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-12 right-12 hidden md:block">
+<div class="flex flex-col items-center gap-4">
+<span class="text-[10px] tracking-[0.5em] uppercase vertical-rl rotate-180 text-on-surface-variant">Scroll to explore</span>
+<div class="editorial-line h-24"></div>
+</div>
+</div>
+</section>
+<!-- Agency Section -->
+<section class="py-32 bg-surface-container-lowest" id="agency">
+<div class="container mx-auto px-12">
+<div class="grid grid-cols-12 gap-8 items-end mb-24">
+<div class="col-span-12 md:col-span-6">
+<span class="text-primary text-xs font-bold tracking-[0.4em] uppercase block mb-4">01 / Agency</span>
+<h2 class="text-5xl md:text-7xl font-headline font-bold leading-tight">Architecture <br/>of Identity.</h2>
+</div>
+<div class="col-span-12 md:col-span-5 md:col-start-8">
+<p class="text-on-surface-variant text-lg leading-loose mb-8">We treat every project as a physical artifact—a curated exhibition where the brand's heritage is the central specimen. We reject the ephemeral for the enduring.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-outline-variant/20">
+<div class="p-12 border-b md:border-b-0 md:border-r border-outline-variant/20 group hover:bg-surface-container-high transition-colors duration-500">
+<div class="text-[80px] font-headline font-bold text-primary mb-4">12</div>
+<h3 class="text-sm uppercase tracking-widest font-bold mb-2">Years of Heritage</h3>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest leading-relaxed">Forging timeless narratives across continents.</p>
+</div>
+<div class="p-12 border-b md:border-b-0 md:border-r border-outline-variant/20 group hover:bg-surface-container-high transition-colors duration-500">
+<div class="text-[80px] font-headline font-bold text-primary mb-4">84</div>
+<h3 class="text-sm uppercase tracking-widest font-bold mb-2">Global Awards</h3>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest leading-relaxed">Recognized for excellence in spatial and digital design.</p>
+</div>
+<div class="relative overflow-hidden aspect-square md:aspect-auto">
+<img alt="overhead view of creative studio with large wooden desks and blueprint rolls" class="w-full h-full object-cover grayscale brightness-50 group-hover:scale-105 transition-transform duration-700" data-alt="aerial view of a sophisticated creative design studio with dark wood furniture, organized chaos of blueprints, and soft warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfks5O8Ruw7nZTaoqbs41bEyowpEfCZX9pcQmxaFY8Wgxo3QH-GN3V8C76sC5f6R67kqSlBo0ouBcLQFr2FxfL03XddJh24lA2JGNDgn0NiV96pSJ3VYcHqfCkWhxmWNZlZBgvt_yY1KDtU2wA-XoDp9CNdlSJkAVbLQzOhneLWhfPYEKjzwICGaAvdit2U25v0VQ8n0o9RAMoy8B9mlsr1AE0ZIeuvb0Sl7WaB2Jm6QXCBoBLk_UX0PpeDlATIZ5ZIZg-nVCYQ9Q"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-white text-xs font-bold uppercase tracking-[0.5em] border border-white/30 px-6 py-3 backdrop-blur-md">View Studio</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="bg-surface relative" id="services">
+<div class="flex flex-col md:flex-row">
+<!-- Service 1 -->
+<div class="flex-1 min-h-[600px] border-r border-outline-variant/10 flex flex-col justify-between p-12 group">
+<div>
+<span class="text-[60px] font-headline font-bold text-outline-variant opacity-20 block group-hover:text-primary group-hover:opacity-100 transition-all">01</span>
+<h3 class="text-4xl font-headline font-bold mt-4">Spatial Curation</h3>
+</div>
+<div class="mt-24">
+<p class="text-on-surface-variant mb-8 max-w-sm">Designing physical environments that breathe life into brand history and cultural legacy.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 text-xs uppercase tracking-widest font-bold">
+<span class="w-8 h-[1px] bg-primary"></span> Exhibit Design
+                            </li>
+<li class="flex items-center gap-4 text-xs uppercase tracking-widest font-bold">
+<span class="w-8 h-[1px] bg-primary"></span> Interior Architecture
+                            </li>
+</ul>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="flex-1 min-h-[600px] bg-surface-container-low border-r border-outline-variant/10 flex flex-col justify-between p-12 group">
+<div>
+<span class="text-[60px] font-headline font-bold text-outline-variant opacity-20 block group-hover:text-primary group-hover:opacity-100 transition-all">02</span>
+<h3 class="text-4xl font-headline font-bold mt-4">Brand Preservation</h3>
+</div>
+<div class="mt-24">
+<p class="text-on-surface-variant mb-8 max-w-sm">Elevating identities through archival-quality brand systems and visual storytelling.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 text-xs uppercase tracking-widest font-bold">
+<span class="w-8 h-[1px] bg-primary"></span> Heritage Strategy
+                            </li>
+<li class="flex items-center gap-4 text-xs uppercase tracking-widest font-bold">
+<span class="w-8 h-[1px] bg-primary"></span> Visual Systems
+                            </li>
+</ul>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="flex-1 min-h-[600px] flex flex-col justify-between p-12 group">
+<div>
+<span class="text-[60px] font-headline font-bold text-outline-variant opacity-20 block group-hover:text-primary group-hover:opacity-100 transition-all">03</span>
+<h3 class="text-4xl font-headline font-bold mt-4">Digital Archives</h3>
+</div>
+<div class="mt-24">
+<p class="text-on-surface-variant mb-8 max-w-sm">Translating timeless heritage into high-performance, immersive digital experiences.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 text-xs uppercase tracking-widest font-bold">
+<span class="w-8 h-[1px] bg-primary"></span> Web Architecture
+                            </li>
+<li class="flex items-center gap-4 text-xs uppercase tracking-widest font-bold">
+<span class="w-8 h-[1px] bg-primary"></span> Immersive Media
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Work Section -->
+<section class="py-32 bg-surface-container-lowest overflow-hidden" id="work">
+<div class="container mx-auto px-12 mb-16 flex justify-between items-end">
+<div>
+<span class="text-primary text-xs font-bold tracking-[0.4em] uppercase block mb-4">02 / Work</span>
+<h2 class="text-5xl font-headline font-bold">The Portfolio.</h2>
+</div>
+<div class="hidden md:block">
+<a class="text-xs uppercase tracking-widest font-bold border-b-2 border-primary pb-2 hover:text-primary transition-colors" href="#">View All Projects</a>
+</div>
+</div>
+<div class="flex flex-col gap-32">
+<!-- Featured Project 1 -->
+<div class="relative w-full h-[819px] flex items-center justify-center overflow-hidden">
+<img alt="modern skyscraper with glass facade reflecting dark clouds" class="absolute inset-0 w-full h-full object-cover grayscale brightness-50" data-alt="monolithic glass and steel skyscraper reaching into a dark overcast sky, sharp vertical lines and moody reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC2mkJCIOnWnlQ3ZtrdPYrybX9_jKxS8QlbVJpK1ZaUobSVGstJoZss9iVimrXjST5VePBcL_Ti6q1N9OmEpamO71dlA2JLPRGCns_Ee-pFSre2qfK02QcmcfKdLjdObLiMvi_UTZiSx-Q0EWYGtbbxYg4cpny9rNta4hCYEHuk7VjLD7pd_DLqHDakf5-tjORdYjM_UA4YixQYDD_NzceaEX00oVH_sXT38ofhOz2nnAlHlbAxQDT9nnRsAvuKWQPw-bFfRWADsg"/>
+<div class="relative z-10 text-center">
+<h3 class="text-[clamp(3rem,10vw,8rem)] font-headline font-bold leading-none tracking-tighter uppercase mb-4">Stellaris HQ</h3>
+<p class="text-xs uppercase tracking-[0.8em] text-primary">Spatial Design — 2023</p>
+</div>
+<div class="absolute bottom-12 left-12 max-w-xs p-8 bg-surface/80 backdrop-blur-xl border-l-4 border-primary">
+<p class="text-xs leading-relaxed uppercase tracking-widest">A brutalist interpretation of modern corporate identity for the world's leading tech conservatory.</p>
+</div>
+</div>
+<!-- Project Grid -->
+<div class="container mx-auto px-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="relative aspect-[16/10] bg-surface-container overflow-hidden group">
+<img alt="interior of a modern art gallery with white walls and concrete floors" class="w-full h-full object-cover grayscale group-hover:scale-110 transition-transform duration-1000" data-alt="minimalist art gallery interior with expansive white walls, polished concrete floors, and atmospheric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALGxzTY9Y118Xr5l_46TYFGm6E2R68xmOZKvIosuQV7cpYY1uD-5tsMzz9nz3x1cRN33PyQxKLEkgFQ2n3WQ1FRQPW5U5lGauEywbzdRTNQ0QN8IoU5v1bd0_KbM-zU5PRC0cXT-kHKWNMvIX-s_IxJvWfAdT4vSl6ajTqtgCZKe0VwxHg0yyG0Ij8NB_Fdxs2C4IybLHfvYebmrvqYjRxpXbiS-DNfr5MP3diYoGoI5MiISAejeFzZ-HxpCg57I3XffvMoqvO7vM"/>
+<div class="absolute bottom-8 left-8">
+<h4 class="text-2xl font-headline font-bold">Nordic Pavillion</h4>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Cultural Archive</p>
+</div>
+</div>
+<div class="relative aspect-[16/10] bg-surface-container overflow-hidden group mt-12 md:mt-24">
+<img alt="dark office lobby with warm accent lighting and clean lines" class="w-full h-full object-cover grayscale group-hover:scale-110 transition-transform duration-1000" data-alt="sleek corporate lobby with dark marble surfaces, linear architectural lighting, and minimalist furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuixkYUN0-eGGfMt2WIWC_F_h2d3E0W6R05iABcwMSgCFt_uxNc_Ic749m8K0rUPw9pfuxwJ2DA-xCjih72Ueaf7AoU8YdWbmTjDzyGCKazbouJZPYzJ9zT9uMj6QY9TByto4tunH4Q-LHXPtdBs-lEpAWh4I69y0aFub3hLsx5B5BbUFkCO2QB7OVQkkHEYm5ZE-K0kKrEGkb6VZq3TV4G4hov3DWk367ZC3mVAjoSXJoVWOLpfBjbbIVhFngGI8C-5-0lNl-lQs"/>
+<div class="absolute bottom-8 left-8">
+<h4 class="text-2xl font-headline font-bold">Vanguard Collective</h4>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Digital Platform</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 bg-surface" id="contact">
+<div class="container mx-auto px-12">
+<div class="grid grid-cols-12 gap-8 border-t border-outline-variant/30 pt-24">
+<div class="col-span-12 md:col-span-4">
+<span class="text-primary text-xs font-bold tracking-[0.4em] uppercase block mb-4">03 / Contact</span>
+<h2 class="text-6xl font-headline font-bold leading-none mb-12">Let's Build <br/>Permanence.</h2>
+<div class="space-y-8">
+<div>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">New Inquiries</p>
+<a class="text-2xl font-headline italic hover:text-primary transition-colors" href="mailto:studio@agency.com">hello@studio.agency</a>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Studio Location</p>
+<p class="text-xl font-headline">128 Brutalist Way, <br/>East District, London</p>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-7 md:col-start-6">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="border-b border-outline-variant focus-within:border-primary transition-colors py-4">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant block mb-2">Your Name</label>
+<input class="bg-transparent border-none w-full p-0 text-white focus:ring-0 placeholder:text-zinc-700" placeholder="Alexander Arch" type="text"/>
+</div>
+<div class="border-b border-outline-variant focus-within:border-primary transition-colors py-4">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant block mb-2">Email Address</label>
+<input class="bg-transparent border-none w-full p-0 text-white focus:ring-0 placeholder:text-zinc-700" placeholder="alex@heritage.co" type="email"/>
+</div>
+<div class="md:col-span-2 border-b border-outline-variant focus-within:border-primary transition-colors py-4">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant block mb-2">The Project Scope</label>
+<textarea class="bg-transparent border-none w-full p-0 text-white focus:ring-0 placeholder:text-zinc-700 resize-none" placeholder="Briefly describe the artifact we are building..." rows="4"></textarea>
+</div>
+<div class="md:col-span-2">
+<button class="w-full md:w-auto px-12 py-5 bg-primary text-on-primary font-bold uppercase tracking-[0.3em] text-xs hover:bg-primary-container transition-all">Submit Inquiry</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-none border-t border-zinc-900/10 bg-[#0e0e0e] w-full px-12 py-16 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="font-['Manrope'] uppercase tracking-[0.2em] text-[10px] text-zinc-600">
+            © 2024 STUDIO AGENCY. ALL RIGHTS RESERVED.
+        </div>
+<div class="flex gap-8">
+<a class="font-['Manrope'] uppercase tracking-[0.2em] text-[10px] text-zinc-600 hover:text-[#CC7722] transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Instagram</a>
+<a class="font-['Manrope'] uppercase tracking-[0.2em] text-[10px] text-zinc-600 hover:text-[#CC7722] transition-colors duration-300 opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="font-['Manrope'] uppercase tracking-[0.2em] text-[10px] text-zinc-600 hover:text-[#CC7722] transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Twitter</a>
+<a class="font-['Manrope'] uppercase tracking-[0.2em] text-[10px] text-zinc-600 hover:text-[#CC7722] transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="font-['Manrope'] uppercase tracking-[0.2em] text-[10px] text-zinc-600 hover:text-[#CC7722] transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Terms</a>
+</div>
+</footer>
+</body></html>
