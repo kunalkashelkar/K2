@@ -8,9 +8,9 @@ export default function Navbar() {
         <a className="text-zinc-400 font-medium font-[Newsreader] italic text-lg tracking-tight hover:text-[#ffb77c] transition-colors" href="#services">Services</a>
         <a className="text-zinc-400 font-medium font-[Newsreader] italic text-lg tracking-tight hover:text-[#ffb77c] transition-colors" href="#work">Work</a>
       </div>
-      <button className="bg-[#d27c27] text-[#432100] px-6 py-2 font-bold uppercase tracking-widest text-xs hover:bg-[#ffb77c] transition-all duration-200 ease-in-out">
+      <a href="#contact" className="bg-[#d27c27] text-[#432100] px-6 py-2 font-bold uppercase tracking-widest text-xs hover:bg-[#ffb77c] transition-all duration-200 ease-in-out inline-block">
         Inquire
-      </button>
+      </a>
     </nav>
   );
 }
