@@ -6,7 +6,7 @@ export default function Contact() {
           {/* Info Column */}
           <div className="col-span-12 md:col-span-4">
             <span className="text-[#ffb77c] text-xs font-bold tracking-[0.4em] uppercase block mb-4">
-              03 / Contact
+              Contact
             </span>
             <h2 className="text-6xl font-[Newsreader] font-bold leading-none mb-12">
               Let's Build <br />Permanence.
@@ -18,13 +18,13 @@ export default function Contact() {
                   className="text-2xl font-[Newsreader] italic hover:text-[#ffb77c] transition-colors"
                   href="mailto:hello@studio.agency"
                 >
-                  hello@studio.agency
+                  redthread@studio.agency
                 </a>
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-widest text-[#dac2b2] mb-2">Studio Location</p>
                 <p className="text-xl font-[Newsreader]">
-                  128 Brutalist Way, <br />East District, London
+                  128 Andheri West, <br />Mumbai, Maharashtra
                 </p>
               </div>
             </div>
