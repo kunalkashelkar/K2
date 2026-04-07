@@ -3,7 +3,7 @@ export default function Work() {
     <section className="py-32 bg-[#0e0e0e] overflow-hidden" id="work">
       <div className="container mx-auto px-12 mb-16 flex justify-between items-end">
         <div>
-          <span className="text-[#ffb77c] text-xs font-bold tracking-[0.4em] uppercase block mb-4">02 / Work</span>
+          <span className="text-[#ffb77c] text-xs font-bold tracking-[0.4em] uppercase block mb-4">03 / Work</span>
           <h2 className="text-5xl font-[Newsreader] font-bold">The Portfolio.</h2>
         </div>
         <div className="hidden md:block">
