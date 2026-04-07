@@ -19,6 +19,15 @@ const SECTION_TITLES = {
 
 function App() {
   useEffect(() => {
+    // Prevent browser scroll restoration and clear hash
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+    window.scrollTo(0, 0);
+
     const sections = Object.keys(SECTION_TITLES).map(id => document.getElementById(id)).filter(Boolean)
 
     const observer = new IntersectionObserver(
