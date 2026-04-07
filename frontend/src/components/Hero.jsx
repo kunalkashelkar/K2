@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import heroImg from "../assets/hero.png";
 
 export default function Hero() {
   const overlayRef = useRef(null);
@@ -27,7 +28,7 @@ export default function Hero() {
           className="absolute inset-[-6%] transition-transform duration-700 ease-out will-change-transform"
         >
           <img
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=2800&auto=format&fit=crop"
+            src={heroImg}
             alt="cinematic architectural corridor"
             className="w-full h-full object-cover"
           />
@@ -48,7 +49,7 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto">
         {/* Section label */}
         <span
-          className="text-[10px] font-bold tracking-[0.55em] uppercase text-white/60 mb-8 block"
+          className="text-[10px] font-semibold tracking-[0.55em] uppercase text-[#e8843a] mb-8 block"
           style={{ fontFamily: "Manrope, sans-serif" }}
         >
           Cultural Leadership
@@ -56,38 +57,16 @@ export default function Hero() {
 
         {/* Headline */}
         <h1
-          className="font-[Newsreader] italic font-bold leading-[1.0] tracking-tight text-white mb-12"
-          style={{ fontSize: "clamp(2.8rem, 8vw, 6.5rem)" }}
+          className="font-[Newsreader] italic leading-[1.0] tracking-tight text-white mb-12"
+          style={{ fontSize: "clamp(2.8rem, 8vw, 6.5rem)", fontWeight: 400 }}
         >
           Defining the{" "}
-          <span className="text-[#e8843a] not-italic font-bold">Future</span>
+          <span className="text-[#e8843a]">Future</span>
           {" "}of
           <br />
           Cultural Legacy.
         </h1>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center gap-6">
-          {/* Primary CTA */}
-          <a
-            href="#work"
-            className="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden text-[11px] font-bold tracking-[0.35em] uppercase text-[#1a0e05] bg-[#e8843a] transition-all duration-300 hover:bg-[#ffab40]"
-          >
-            <span className="relative z-10">Explore Archives</span>
-          </a>
-
-          {/* Secondary CTA */}
-          <a
-            href="#agency"
-            className="group inline-flex items-center gap-4 text-[11px] font-bold tracking-[0.35em] uppercase text-white/70 hover:text-white transition-colors duration-300"
-            style={{ fontFamily: "Manrope, sans-serif" }}
-          >
-            The Methodology
-            <span className="inline-block transition-transform duration-300 group-hover:translate-x-2">
-              →
-            </span>
-          </a>
-        </div>
       </div>
 
       {/* ── Scroll indicator ── */}
