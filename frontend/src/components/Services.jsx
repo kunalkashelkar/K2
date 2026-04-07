@@ -1,49 +1,50 @@
-import { useCallback, useEffect, useRef } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { useInView } from "motion/react"
 import { TextRotate } from "@/components/ui/text-rotate"
 
 const services = [
   {
     number: "01",
-    title: "Spatial Curation",
-    tag: "Physical Environments",
+    title: "Live Event Production",
+    tag: "Performances & Shows",
     description:
-      "Designing physical environments that breathe life into brand history and cultural legacy. We sculpt spaces that tell stories — where every corner, material, and shadow is a deliberate curatorial choice.",
-    items: ["Exhibit Design", "Interior Architecture", "Wayfinding Systems"],
-    accent: "#ffb77c",
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2800&auto=format&fit=crop",
+      "From intimate cultural showcases to large-scale open-air festivals, we architect live experiences end-to-end. Every production is treated as a cultural artifact — where staging, lighting, and storytelling converge into an unforgettable moment.",
+    items: ["Stage & Show Direction", "Festival Management", "Talent Coordination"],
+    accent: "#ffab40",
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2800&auto=format&fit=crop",
   },
   {
     number: "02",
-    title: "Brand Preservation",
-    tag: "Heritage Identity",
+    title: "Creative Workshops",
+    tag: "Education & Facilitation",
     description:
-      "Elevating identities through archival-quality brand systems and visual storytelling that outlast trends. We build visual languages that honor a brand's past while boldly defining its future.",
-    items: ["Heritage Strategy", "Visual Systems", "Archive Cataloguing"],
-    accent: "#d27c27",
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2800&auto=format&fit=crop",
+      "We design and deliver immersive workshops that bridge traditional craft with contemporary creative practice. Our facilitated sessions unlock potential in individuals and teams — building skills that last well beyond the room.",
+    items: ["Concept Development", "Skill-Building Labs", "Community Programmes"],
+    accent: "#e07820",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2800&auto=format&fit=crop",
   },
   {
     number: "03",
-    title: "Digital Archives",
-    tag: "Immersive Technology",
+    title: "Digital Content & Media",
+    tag: "Video, Podcast & Online",
     description:
-      "Translating timeless heritage into high-performance, immersive digital experiences. We engineer digital spaces that preserve the weight and gravitas of physical artifacts.",
-    items: ["Web Architecture", "Immersive Media", "Interactive Installations"],
+      "We produce compelling digital content that carries cultural weight — from documentary-style video series and podcast productions, to performance captures and social campaigns built for global audiences.",
+    items: ["Video Production", "Podcast Series", "Social Content Strategy"],
     accent: "#c4945a",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=2800&auto=format&fit=crop",
   },
   {
     number: "04",
-    title: "Campaign Direction",
-    tag: "Narrative & Film",
+    title: "Arts & Culture Programming",
+    tag: "Heritage & Contemporary Art",
     description:
-      "Orchestrating end-to-end campaign ecosystems rooted in cultural resonance and cinematic storytelling. From concept to distribution, we direct narratives that leave permanent impressions.",
-    items: ["Film Production", "Editorial Direction", "Content Strategy"],
-    accent: "#ffb77c",
-    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2800&auto=format&fit=crop",
+      "We champion both traditional and contemporary art forms — curating exhibitions, residencies, and cultural programming that positions art as a living, breathing force. Our work roots global relevance in authentic cultural identity.",
+    items: ["Exhibition Curation", "Artist Residencies", "Cultural Campaigns"],
+    accent: "#ffab40",
+    image: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?q=80&w=2800&auto=format&fit=crop",
   },
 ]
+
 // Text rotate animation
 
 // ── Individual scrollable service card ──────────────────────────────────────
@@ -150,11 +151,13 @@ function ServiceCard({ service, index, onInView }) {
 export default function Services() {
   const textRotateRef = useRef(null)
   const tagRotateRef = useRef(null)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   const handleInView = useCallback((index, inView) => {
     if (inView) {
       textRotateRef.current?.jumpTo(index)
       tagRotateRef.current?.jumpTo(index)
+      setActiveIndex(index)
     }
   }, [])
 
@@ -168,12 +171,12 @@ export default function Services() {
 
             {/* Section label */}
             <div>
-              <span className="text-[#ffb77c] text-[10px] font-bold tracking-[0.4em] uppercase block mb-3">
-                02 / Services
+              <span className="text-[#ffab40] text-[10px] font-bold tracking-[0.4em] uppercase block mb-3">
+                Services
               </span>
               <h2 className="text-5xl font-[Newsreader] font-bold leading-tight">
                 What We<br />
-                <span className="italic font-light text-[#ffb77c]">Craft.</span>
+                <span className="italic font-light text-[#ffab40]">Craft.</span>
               </h2>
             </div>
 
@@ -203,7 +206,7 @@ export default function Services() {
                 ref={tagRotateRef}
                 texts={services.map((s) => s.tag)}
                 mainClassName="text-xs uppercase tracking-[0.35em] mt-3 w-full"
-                elementLevelClassName="text-[#ffb77c]"
+                elementLevelClassName="text-[#ffab40]"
                 splitLevelClassName="overflow-hidden"
                 staggerFrom="first"
                 animatePresenceMode="wait"
@@ -221,15 +224,21 @@ export default function Services() {
             {/* Progress indicator */}
             <div>
               <div className="flex gap-2 mb-3">
-                {services.map((_, i) => (
+                {services.map((s, i) => (
                   <div
                     key={i}
-                    className="h-[2px] flex-1 bg-[#544437]/40 rounded-full"
+                    className="h-[2px] flex-1 rounded-full transition-all duration-500 ease-out"
+                    style={{
+                      backgroundColor: i === activeIndex ? s.accent : '#544437',
+                      opacity: i === activeIndex ? 1 : 0.3,
+                      transform: i === activeIndex ? 'scaleY(2.5)' : 'scaleY(1)',
+                      transformOrigin: 'center',
+                    }}
                   />
                 ))}
               </div>
               <p className="text-[10px] uppercase tracking-widest text-zinc-600">
-                {services.length} Services Available
+                {String(activeIndex + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')} Services
               </p>
             </div>
           </div>
@@ -239,11 +248,11 @@ export default function Services() {
         <div className="w-full md:w-1/2 overflow-y-auto snap-y snap-mandatory bg-[#0a0a0a]">
           {/* Mobile-only section label */}
           <div className="md:hidden px-6 pt-20 pb-4">
-            <span className="text-[#ffb77c] text-[10px] font-bold tracking-[0.4em] uppercase block mb-2">
+            <span className="text-[#ffab40] text-[10px] font-bold tracking-[0.4em] uppercase block mb-2">
               02 / Services
             </span>
             <h2 className="text-4xl font-[Newsreader] font-bold">
-              What We <span className="italic font-light text-[#ffb77c]">Craft.</span>
+              What We <span className="italic font-light text-[#ffab40]">Craft.</span>
             </h2>
           </div>
 

@@ -1,19 +1,18 @@
-import { useRef } from "react";
+
 
 const LOGOS = [
-  { src: "https://cdn.worldvectorlogo.com/logos/react-2.svg",                  alt: "React" },
-  { src: "https://cdn.worldvectorlogo.com/logos/next-js.svg",                  alt: "Next.js" },
-  { src: "https://cdn.worldvectorlogo.com/logos/vercel.svg",                   alt: "Vercel" },
-  { src: "https://cdn.worldvectorlogo.com/logos/typescript.svg",               alt: "TypeScript" },
-  { src: "https://cdn.worldvectorlogo.com/logos/tailwindcss.svg",              alt: "Tailwind CSS" },
-  { src: "https://cdn.worldvectorlogo.com/logos/stripe-4.svg",                 alt: "Stripe" },
-  { src: "https://cdn.worldvectorlogo.com/logos/notion-2.svg",                 alt: "Notion" },
-  { src: "https://cdn.worldvectorlogo.com/logos/github-icon-1.svg",            alt: "GitHub" },
-  { src: "https://cdn.worldvectorlogo.com/logos/figma-icon-one-color.svg",     alt: "Figma" },
-  { src: "https://cdn.worldvectorlogo.com/logos/storybook-1.svg",              alt: "Storybook" },
-  { src: "https://cdn.worldvectorlogo.com/logos/postgresql.svg",               alt: "PostgreSQL" },
-  { src: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg",           alt: "MongoDB" },
+  { src: "https://cdn.simpleicons.org/nike/ffffff",               alt: "Nike" },
+  { src: "https://cdn.simpleicons.org/spotify/ffffff",            alt: "Spotify" },
+  { src: "https://cdn.simpleicons.org/netflix/ffffff",            alt: "Netflix" },
+  { src: "https://cdn.simpleicons.org/behance/ffffff",            alt: "Behance" },
+  { src: "https://cdn.simpleicons.org/ted/ffffff",                alt: "TED" },
+  { src: "https://cdn.simpleicons.org/airbnb/ffffff",             alt: "Airbnb" },
+  { src: "https://cdn.simpleicons.org/redbull/ffffff",            alt: "Red Bull" },
+  { src: "https://cdn.simpleicons.org/zomato/ffffff",             alt: "Zomato" },
+  { src: "https://cdn.simpleicons.org/infosys/ffffff",            alt: "Infosys" },
 ];
+
+
 
 export function LogoMarquee({ logos = LOGOS, speed = 30 }) {
   // Duplicate for seamless loop

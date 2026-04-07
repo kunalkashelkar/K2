@@ -1,50 +1,104 @@
+import { useEffect, useRef } from "react";
+
 export default function Hero() {
+  const overlayRef = useRef(null);
+
+  // Subtle parallax on mouse move
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!overlayRef.current) return;
+      const x = (e.clientX / window.innerWidth - 0.5) * 12;
+      const y = (e.clientY / window.innerHeight - 0.5) * 8;
+      overlayRef.current.style.transform = `translate(${x}px, ${y}px) scale(1.06)`;
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <section
-      className="relative min-h-screen flex items-center pt-24 overflow-hidden border-b border-[#544437]/10"
       id="home"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Background image */}
-      <div className="absolute inset-0 z-0 opacity-20">
-        <img
-          alt="stark brutalist concrete structure with sharp shadows and architectural grid patterns"
-          className="w-full h-full object-cover grayscale"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEUsDvOUuA-GL_bMLgFRuRNMOypp4P686s0gTIXsjuylGKIHrExdC8CdDJfHL_oO_kepZ1yPSC5pm4HAIhNalSNlP0rkMB1U2IDxq0CVoYd-7JR6gNsekY3AF9QPCm3wpsq3tJfPqH8h7lXzO0lHVN9RrJavlgeyhkZGnkDwZ7Sjq4Yg5n8E5cSdvjj2KzV7188J5344HQ-I13SwuRHpbNejPav1dcRiGQihEsFMVAZGmmGcS-2Yrv2Og4q9UkhylgBspE-HKSFlU"
+      {/* ── Background ── */}
+      <div className="absolute inset-0 z-0 bg-[#0a0805]">
+        <div
+          ref={overlayRef}
+          className="absolute inset-[-6%] transition-transform duration-700 ease-out will-change-transform"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=2800&auto=format&fit=crop"
+            alt="cinematic architectural corridor"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {/* Multi-layer dark gradient vignette */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0805]/60 via-[#0a0805]/20 to-[#0a0805]/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0805]/50 via-transparent to-[#0a0805]/50" />
+        {/* Grain texture overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.04] mix-blend-overlay"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          }}
         />
       </div>
 
-      <div className="container mx-auto px-12 relative z-10 grid grid-cols-12 gap-8">
-        <div className="col-span-12 md:col-span-8">
-          <h1 className="text-[clamp(4rem,12vw,10rem)] leading-[0.85] font-[Newsreader] font-extrabold tracking-tighter uppercase mb-8">
-            The Brutalist <br />
-            <span className="italic text-[#ffb77c] font-light">Archive.</span>
-          </h1>
-          <div className="flex flex-col md:flex-row gap-12 mt-16 items-start">
-            <div className="max-w-xs">
-              <p className="text-sm uppercase tracking-[0.3em] text-[#dac2b2] mb-4">Curated Legacy</p>
-              <p className="text-[#e5e2e1] font-[Manrope] text-lg leading-relaxed">
-                Defining the next generation of heritage through architectural precision and digital permanence.
-              </p>
-            </div>
-            <div className="w-full md:w-64 aspect-[3/4] bg-[#2a2a2a] relative">
-              <img
-                alt="minimalist sculpture on a dark stone pedestal with dramatic warm lighting from the side"
-                className="w-full h-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ-WgIKVuWEm3TU-MQrEXBWrSaAgSQwi1xWRUN0talPzHkhdx4FiMVy19VGi6g6JY0GUBjx8af6w2GaO7FZl0rBEoCQwsqHlX-jfr7c1Sk2O8p_dACwP3f4P8Zaq93MqhBwKHveZEnycxmeWgJZ6p9-oRUnWk-8TOOHR23j0BJjwA-EHOv_9ltUpKR0IE--aDZh3PCV5-ihjpHzASO-W1zQFFi4QnzC27fqYtDl42E8WGo87arBvYvC5iHoXCBz-EAdIy6TJdKvfY"
-              />
-            </div>
-          </div>
+      {/* ── Content ── */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto">
+        {/* Section label */}
+        <span
+          className="text-[10px] font-bold tracking-[0.55em] uppercase text-white/60 mb-8 block"
+          style={{ fontFamily: "Manrope, sans-serif" }}
+        >
+          Cultural Leadership
+        </span>
+
+        {/* Headline */}
+        <h1
+          className="font-[Newsreader] italic font-bold leading-[1.0] tracking-tight text-white mb-12"
+          style={{ fontSize: "clamp(2.8rem, 8vw, 6.5rem)" }}
+        >
+          Defining the{" "}
+          <span className="text-[#e8843a] not-italic font-bold">Future</span>
+          {" "}of
+          <br />
+          Cultural Legacy.
+        </h1>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center gap-6">
+          {/* Primary CTA */}
+          <a
+            href="#work"
+            className="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden text-[11px] font-bold tracking-[0.35em] uppercase text-[#1a0e05] bg-[#e8843a] transition-all duration-300 hover:bg-[#ffab40]"
+          >
+            <span className="relative z-10">Explore Archives</span>
+          </a>
+
+          {/* Secondary CTA */}
+          <a
+            href="#agency"
+            className="group inline-flex items-center gap-4 text-[11px] font-bold tracking-[0.35em] uppercase text-white/70 hover:text-white transition-colors duration-300"
+            style={{ fontFamily: "Manrope, sans-serif" }}
+          >
+            The Methodology
+            <span className="inline-block transition-transform duration-300 group-hover:translate-x-2">
+              →
+            </span>
+          </a>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-12 right-12 hidden md:block">
-        <div className="flex flex-col items-center gap-4">
-          <span className="text-[10px] tracking-[0.5em] uppercase vertical-rl rotate-180 text-[#dac2b2]">
-            Scroll to explore
-          </span>
-          <div className="editorial-line h-24"></div>
-        </div>
+      {/* ── Scroll indicator ── */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 opacity-40">
+        <span
+          className="text-[9px] tracking-[0.5em] uppercase text-white"
+          style={{ fontFamily: "Manrope, sans-serif" }}
+        >
+          Scroll
+        </span>
+        <div className="w-[1px] h-12 bg-white/60 animate-pulse" />
       </div>
     </section>
   );
