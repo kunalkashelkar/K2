@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="w-full border-t border-zinc-900/10 bg-[#0e0e0e] px-12 py-16 flex flex-col md:flex-row justify-between items-center gap-8">
       <div className="font-[Manrope] uppercase tracking-[0.2em] text-[10px] text-zinc-600">
-        © 2026 STUDIO AGENCY. ALL RIGHTS RESERVED.
+        © 2026 REDTHREAD AGENCY. ALL RIGHTS RESERVED.
       </div>
 
       <div className="flex items-center gap-8">
