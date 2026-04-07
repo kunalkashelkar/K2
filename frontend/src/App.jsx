@@ -7,6 +7,7 @@ import Services from './components/Services'
 import Work from './components/Work'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { LogoMarquee } from './components/ui/logo-marquee'
 
 const SECTION_TITLES = {
   home:     'Studio Agency — Home',
@@ -41,6 +42,7 @@ function App() {
       <main>
         <Hero />
         <Agency />
+        <LogoMarquee />
         <Services />
         <Work />
         <Contact />

@@ -52,6 +52,25 @@
   --color-surface-variant: #353534;
   --color-inverse-on-surface: #313030;
 
+  /* shadcn compatibility aliases */
+  --color-background: #131313;
+  --color-foreground: #e5e2e1;
+  --color-card: #1c1b1b;
+  --color-card-foreground: #e5e2e1;
+  --color-popover: #201f1f;
+  --color-popover-foreground: #e5e2e1;
+  --color-muted: #2a2a2a;
+  --color-muted-foreground: #a28d7e;
+  --color-accent: #353534;
+  --color-accent-foreground: #e5e2e1;
+  --color-border: #544437;
+  --color-input: #544437;
+  --color-ring: #ffb77c;
+  --color-destructive: #f45;
+  --color-destructive-foreground: #e5e2e1;
+  --color-secondary: #353534;
+  --color-secondary-foreground: #e5e2e1;
+
   --font-headline: "Newsreader", serif;
   --font-body: "Manrope", sans-serif;
   --font-label: "Manrope", sans-serif;
@@ -91,4 +110,19 @@
   .vertical-rl {
     writing-mode: vertical-rl;
   }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 30s) linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
 }

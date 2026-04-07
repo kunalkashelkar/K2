@@ -6,7 +6,7 @@ export default function Agency() {
         <div className="grid grid-cols-12 gap-8 items-end mb-24">
           <div className="col-span-12 md:col-span-6">
             <span className="text-[#ffb77c] text-xs font-bold tracking-[0.4em] uppercase block mb-4">
-              01 / Agency
+              Agency
             </span>
             <h2 className="text-5xl md:text-7xl font-[Newsreader] font-bold leading-tight">
               Architecture <br />of Identity.

@@ -44,6 +44,7 @@ const services = [
     image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2800&auto=format&fit=crop",
   },
 ]
+// Text rotate animation
 
 // ── Individual scrollable service card ──────────────────────────────────────
 function ServiceCard({ service, index, onInView }) {
