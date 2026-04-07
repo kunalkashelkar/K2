@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react"
-import { useInView } from "motion/react"
+import { motion } from "motion/react"
 import { TextRotate } from "@/components/ui/text-rotate"
 
 const services = [
@@ -45,22 +45,46 @@ const services = [
   },
 ]
 
+// ── Common Progress Slider ───────────────────────────────────────────────────
+function ProgressSlider({ activeIndex, services }) {
+  return (
+    <div className="w-full">
+      <div className="relative w-full h-[3px] bg-[#544437]/30 rounded-full mb-3 flex overflow-hidden">
+        <motion.div
+           className="absolute top-0 left-0 h-full rounded-full z-0"
+           initial={false}
+           animate={{
+              width: `${((activeIndex + 1) / services.length) * 100}%`,
+              backgroundColor: services[activeIndex].accent
+           }}
+           transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        />
+        {/* Separators for segments */}
+        {services.map((_, i) => (
+           <div key={i} className="flex-1 border-r border-[#0e0e0e]/50 z-10 last:border-0" />
+        ))}
+      </div>
+      <div className="flex justify-between items-center text-[10px] uppercase tracking-widest text-zinc-500">
+        <p>
+          <span style={{ color: services[activeIndex].accent, fontWeight: "bold", transition: "color 0.3s" }}>
+             {String(activeIndex + 1).padStart(2, '0')}
+          </span>
+          <span className="opacity-50"> / {String(services.length).padStart(2, '0')}</span>
+        </p>
+        <p className="opacity-50">Services</p>
+      </div>
+    </div>
+  )
+}
+
 // Text rotate animation
 
 // ── Individual scrollable service card ──────────────────────────────────────
-function ServiceCard({ service, index, onInView }) {
-  const ref = useRef(null)
-  // Card enters "active" when it occupies the middle 10% of the viewport
-  const isInView = useInView(ref, { margin: "-45% 0px -45% 0px" })
-
-  useEffect(() => {
-    onInView(isInView)
-  }, [isInView, onInView])
-
+function ServiceCard({ service, index }) {
   return (
     <section
-      ref={ref}
-      className="min-h-screen w-full flex items-center justify-center snap-center py-24 px-6"
+      data-index={index}
+      className="service-card min-h-screen w-full flex items-center justify-center py-24 px-6"
     >
       <div
         className="w-full max-w-lg border border-[#544437]/50 overflow-hidden"
@@ -153,13 +177,32 @@ export default function Services() {
   const tagRotateRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  const handleInView = useCallback((index, inView) => {
-    if (inView) {
-      textRotateRef.current?.jumpTo(index)
-      tagRotateRef.current?.jumpTo(index)
-      setActiveIndex(index)
-    }
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute("data-index"))
+            setActiveIndex(index)
+          }
+        })
+      },
+      { rootMargin: "-30% 0px -30% 0px" }
+    )
+
+    const cards = document.querySelectorAll(".service-card")
+    cards.forEach((card) => observer.observe(card))
+
+    return () => observer.disconnect()
   }, [])
+
+  // Ensure TextRotate always stays in sync with activeIndex even on fast initial mounts
+  useEffect(() => {
+    if (textRotateRef.current && tagRotateRef.current) {
+      textRotateRef.current.jumpTo(activeIndex)
+      tagRotateRef.current.jumpTo(activeIndex)
+    }
+  }, [activeIndex])
 
   return (
     <div id="services" className="relative w-full" style={{ height: "auto" }}>
@@ -223,29 +266,13 @@ export default function Services() {
 
             {/* Progress indicator */}
             <div>
-              <div className="flex gap-2 mb-3">
-                {services.map((s, i) => (
-                  <div
-                    key={i}
-                    className="h-[2px] flex-1 rounded-full transition-all duration-500 ease-out"
-                    style={{
-                      backgroundColor: i === activeIndex ? s.accent : '#544437',
-                      opacity: i === activeIndex ? 1 : 0.3,
-                      transform: i === activeIndex ? 'scaleY(2.5)' : 'scaleY(1)',
-                      transformOrigin: 'center',
-                    }}
-                  />
-                ))}
-              </div>
-              <p className="text-[10px] uppercase tracking-widest text-zinc-600">
-                {String(activeIndex + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')} Services
-              </p>
+              <ProgressSlider activeIndex={activeIndex} services={services} />
             </div>
           </div>
         </div>
 
         {/* ── RIGHT: Scrollable service cards ── */}
-        <div className="w-full md:w-1/2 overflow-y-auto snap-y snap-mandatory bg-[#0a0a0a]">
+        <div className="w-full md:w-1/2 bg-[#0a0a0a] relative pb-20 md:pb-0">
           {/* Mobile-only section label */}
           <div className="md:hidden px-6 pt-20 pb-4">
             <span className="text-[#ffab40] text-[10px] font-bold tracking-[0.4em] uppercase block mb-2">
@@ -261,9 +288,13 @@ export default function Services() {
               key={service.number}
               service={service}
               index={index}
-              onInView={(inView) => handleInView(index, inView)}
             />
           ))}
+
+          {/* Mobile-only sticky bottom progress slider */}
+          <div className="md:hidden sticky bottom-0 left-0 w-full bg-[#0a0a0a]/90 backdrop-blur-md px-6 py-4 z-40 border-t border-[#544437]/40 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+             <ProgressSlider activeIndex={activeIndex} services={services} />
+          </div>
         </div>
       </div>
     </div>
