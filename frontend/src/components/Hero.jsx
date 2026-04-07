@@ -1,8 +1,21 @@
 import { useEffect, useRef } from "react";
-import heroImg from "../assets/hero.png";
+import { motion, useScroll, useTransform } from "motion/react";
+import heroImg from "../assets/Stage Design - Sensation RISE - Bart van Rooy.jpg";
 
 export default function Hero() {
+  const containerRef = useRef(null);
   const overlayRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const imgGrayscale = useTransform(scrollYProgress, [0, 0.4], [0, 100]);
+  const filterStyle = useTransform(imgGrayscale, (g) => `grayscale(${g}%)`);
+
+  const textOpacity = useTransform(scrollYProgress, [0.1, 0.5], [0, 1]);
+  const textY = useTransform(scrollYProgress, [0.1, 0.5], [40, 0]);
 
   // Subtle parallax on mouse move
   useEffect(() => {
@@ -17,67 +30,70 @@ export default function Hero() {
   }, []);
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
-    >
-      {/* ── Background ── */}
-      <div className="absolute inset-0 z-0 bg-[#0a0805]">
-        <div
-          ref={overlayRef}
-          className="absolute inset-[-6%] transition-transform duration-700 ease-out will-change-transform"
-        >
-          <img
-            src={heroImg}
-            alt="cinematic architectural corridor"
-            className="w-full h-full object-cover"
+    <section ref={containerRef} id="home" className="relative h-[200vh]">
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
+        {/* ── Background ── */}
+        <div className="absolute inset-0 z-0 bg-[#0a0805]">
+          <motion.div
+            ref={overlayRef}
+            className="absolute inset-[-6%] transition-transform duration-700 ease-out will-change-transform"
+            style={{ filter: filterStyle }}
+          >
+            <img
+              src={heroImg}
+              alt="cinematic architectural corridor"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+          {/* Multi-layer dark gradient vignette */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0805]/60 via-[#0a0805]/20 to-[#0a0805]/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0805]/50 via-transparent to-[#0a0805]/50" />
+          {/* Grain texture overlay */}
+          <div
+            className="absolute inset-0 opacity-[0.04] mix-blend-overlay"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+            }}
           />
         </div>
-        {/* Multi-layer dark gradient vignette */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0805]/60 via-[#0a0805]/20 to-[#0a0805]/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0805]/50 via-transparent to-[#0a0805]/50" />
-        {/* Grain texture overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.04] mix-blend-overlay"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          }}
-        />
-      </div>
 
-      {/* ── Content ── */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto">
-        {/* Section label */}
-        <span
-          className="text-[10px] font-semibold tracking-[0.55em] uppercase text-[#e8843a] mb-8 block"
-          style={{ fontFamily: "Manrope, sans-serif" }}
+        {/* ── Content ── */}
+        <motion.div
+          className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto"
+          style={{ opacity: textOpacity, y: textY }}
         >
-          Cultural Leadership
-        </span>
+          {/* Section label */}
+          <span
+            className="text-[10px] font-semibold tracking-[0.55em] uppercase text-[#e8843a] mb-8 block"
+            style={{ fontFamily: "Manrope, sans-serif" }}
+          >
+            Cultural Leadership
+          </span>
 
-        {/* Headline */}
-        <h1
-          className="font-[Newsreader] italic leading-[1.0] tracking-tight text-white mb-12"
-          style={{ fontSize: "clamp(2.8rem, 8vw, 6.5rem)", fontWeight: 400 }}
-        >
-          Defining the{" "}
-          <span className="text-[#e8843a]">Future</span>
-          {" "}of
-          <br />
-          Cultural Legacy.
-        </h1>
+          {/* Headline */}
+          <h1
+            className="font-[Newsreader] italic leading-[1.0] tracking-tight text-white mb-12"
+            style={{ fontSize: "clamp(2.8rem, 8vw, 6.5rem)", fontWeight: 400 }}
+          >
+            Defining the{" "}
+            <span className="text-[#e8843a]">Future</span>
+            {" "}of
+            <br />
+            Cultural Legacy.
+          </h1>
 
-      </div>
+        </motion.div>
 
-      {/* ── Scroll indicator ── */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 opacity-40">
-        <span
-          className="text-[9px] tracking-[0.5em] uppercase text-white"
-          style={{ fontFamily: "Manrope, sans-serif" }}
-        >
-          Scroll
-        </span>
-        <div className="w-[1px] h-12 bg-white/60 animate-pulse" />
+        {/* ── Scroll indicator ── */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 opacity-40">
+          <span
+            className="text-[9px] tracking-[0.5em] uppercase text-white"
+            style={{ fontFamily: "Manrope, sans-serif" }}
+          >
+            Scroll
+          </span>
+          <div className="w-[1px] h-12 bg-white/60 animate-pulse" />
+        </div>
       </div>
     </section>
   );
